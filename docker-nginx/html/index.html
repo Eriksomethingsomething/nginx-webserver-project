@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore hiking, camping and outdoor essentials at TRAILBOUND. Find your next wild.">
+  <title>TRAILBOUND | Outdoor & Adventure</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">
+    Free shipping on orders over 999 NOK
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Trailbound home">
+      <span class="brand-icon">▲</span>
+      TRAILBOUND
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#products">Shop</a>
+      <a href="#categories" data-category-link="Hiking">Hiking</a>
+      <a href="#categories" data-category-link="Camping">Camping</a>
+      <a href="#categories" data-category-link="Clothing">Clothing</a>
+      <a href="#our-story">Our story</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="cart-link" href="#products" aria-label="Shopping cart">
+        Cart <span class="cart-count" id="cart-count">0</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow light">GEAR FOR THE GREAT OUTDOORS</p>
+        <h1>Find your<br>next <em>wild.</em></h1>
+        <p class="hero-copy">
+          Good gear. Open trails. Unforgettable places.
+          Get ready for whatever lies beyond the ordinary.
+        </p>
+        <a class="button button-light" href="#products">
+          Explore the collection <span>↗</span>
+        </a>
+        <div class="hero-note">
+          <span class="status-dot"></span>
+          Made for the journey, wherever it leads
+        </div>
+      </div>
+      <div class="hero-caption">
+        <span>60° N · Somewhere in the wild</span>
+        <span>01 / EXPLORE MORE</span>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Our benefits">
+      <div><span>✳</span> Built for the outdoors</div>
+      <div><span>↗</span> Free shipping over 999 NOK</div>
+      <div><span>↺</span> 30-day returns</div>
+    </section>
+
+    <section class="categories section" id="categories">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PICK YOUR PATH</p>
+          <h2>Where to next?</h2>
+        </div>
+        <p class="section-description">
+          Different destinations. The right gear for every one.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <a class="category-card hiking-card" href="#products"
+          data-category-link="Hiking">
+          <span class="category-number">01 / THE TRAIL</span>
+          <span class="category-info">
+            <span>Hiking essentials</span>
+            <span class="category-arrow">↗</span>
+          </span>
+        </a>
+
+        <a class="category-card camping-card" href="#products"
+          data-category-link="Camping">
+          <span class="category-number">02 / UNDER THE STARS</span>
+          <span class="category-info">
+            <span>Camp & sleep</span>
+            <span class="category-arrow">↗</span>
+          </span>
+        </a>
+
+        <a class="category-card clothing-card" href="#products"
+          data-category-link="Clothing">
+          <span class="category-number">03 / FACE THE ELEMENTS</span>
+          <span class="category-info">
+            <span>Outdoor clothing</span>
+            <span class="category-arrow">↗</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="products-section section" id="products">
+      <div class="section-heading product-heading">
+        <div>
+          <p class="eyebrow">TESTED BY ADVENTURE</p>
+          <h2>Ready for the trail.</h2>
+        </div>
+        <p class="section-description">
+          Reliable essentials for days outside.
+        </p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter products">
+        <button class="filter-button active" data-filter="All"
+          aria-pressed="true">All gear</button>
+        <button class="filter-button" data-filter="Hiking"
+          aria-pressed="false">Hiking</button>
+        <button class="filter-button" data-filter="Camping"
+          aria-pressed="false">Camping</button>
+        <button class="filter-button" data-filter="Clothing"
+          aria-pressed="false">Clothing</button>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-category="Hiking">
+          <div class="product-image image-backpack">
+            <span class="product-tag">BESTSELLER</span>
+            <span class="product-emoji" aria-hidden="true">🎒</span>
+            <button class="quick-add" data-add="Trailpack 28L"
+              aria-label="Add Trailpack 28L to cart">+</button>
+          </div>
+          <div class="product-details">
+            <div>
+              <h3>Trailpack 28L</h3>
+              <p>Everyday hiking backpack</p>
+            </div>
+            <span class="price">899 kr</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Camping">
+          <div class="product-image image-bottle">
+            <span class="product-tag">TRAIL ESSENTIAL</span>
+            <span class="product-emoji" aria-hidden="true">🧴</span>
+            <button class="quick-add" data-add="Summit Bottle"
+              aria-label="Add Summit Bottle to cart">+</button>
+          </div>
+          <div class="product-details">
+            <div>
+              <h3>Summit Bottle</h3>
+              <p>Insulated steel bottle</p>
+            </div>
+            <span class="price">349 kr</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Clothing">
+          <div class="product-image image-jacket">
+            <span class="product-tag">ALL-WEATHER</span>
+            <span class="product-emoji" aria-hidden="true">🧥</span>
+            <button class="quick-add" data-add="Stormshell Jacket"
+              aria-label="Add Stormshell Jacket to cart">+</button>
+          </div>
+          <div class="product-details">
+            <div>
+              <h3>Stormshell Jacket</h3>
+              <p>Waterproof trail shell</p>
+            </div>
+            <span class="price">1 499 kr</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="Camping">
+          <div class="product-image image-lantern">
+            <span class="product-tag">CAMP FAVORITE</span>
+            <span class="product-emoji" aria-hidden="true">🏮</span>
+            <button class="quick-add" data-add="Camp Glow Lantern"
+              aria-label="Add Camp Glow Lantern to cart">+</button>
+          </div>
+          <div class="product-details">
+            <div>
+              <h3>Camp Glow Lantern</h3>
+              <p>Compact campsite light</p>
+            </div>
+            <span class="price">499 kr</span>
+          </div>
+        </article>
+      </div>
+      <p class="cart-message" id="cart-message" aria-live="polite"></p>
+      <p class="demo-note">
+        Demo store: product names and prices are examples. Checkout is not connected.
+      </p>
+    </section>
+
+    <section class="story-section" id="our-story">
+      <div class="story-mark" aria-hidden="true">▲</div>
+      <div>
+        <p class="eyebrow light">LESS SCROLLING. MORE EXPLORING.</p>
+        <h2>The best things<br>happen <em>out there.</em></h2>
+        <p>
+          From early starts to nights beneath the stars, bring what you need
+          and leave room for the unexpected.
+        </p>
+        <a class="button button-outline" href="#products">Find your gear ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#">
+      <span class="brand-icon">▲</span> TRAILBOUND
+    </a>
+    <p>Find your next wild.</p>
+    <p>© <span id="year"></span> TRAILBOUND · Demo project</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My personal portfolio and web development projects.">
+    <title>My Portfolio | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo"><span>◆</span> MyPortfolio</a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact" class="nav-button">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="tag">WELCOME TO MY WEBSITE</span>
+
+                <h1>Building things<br>for <span>the web.</span></h1>
+
+                <p>
+                    Hi! I'm learning web development, Linux, and Docker.
+                    This is my corner of the internet where I share my
+                    projects and the things I'm building.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="button primary">Explore projects ↗</a>
+                    <a href="#about" class="button secondary">About me</a>
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <div class="glow"></div>
+                <div class="code-card">
+                    <div class="window-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <pre><span class="pink">const</span> website = {
+  name: <span class="green">"My Portfolio"</span>,
+  server: <span class="green">"Nginx"</span>,
+  running: <span class="orange">true</span>,
+  deployed: <span class="orange">true</span>
+};
+
+<span class="purple">console</span>.log(
+  <span class="green">"Hello, world!"</span>
+);</pre>
+                    <div class="status"><span></span> Website running</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects section" id="projects">
+            <div class="section-heading">
+                <span class="tag">WHAT I'M BUILDING</span>
+                <h2>My projects<span>.</span></h2>
+                <p>A few things I'm learning and working on.</p>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-icon purple-icon">⌘</div>
+                    <span class="project-label">01 / WEB</span>
+                    <h3>Web Development</h3>
+                    <p>Learning HTML, CSS, and how to create beautiful websites.</p>
+                    <a href="#contact">Learn more <span>↗</span></a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-icon blue-icon">⌁</div>
+                    <span class="project-label">02 / LINUX</span>
+                    <h3>Linux & Servers</h3>
+                    <p>Exploring Ubuntu, networking, and self-hosted services.</p>
+                    <a href="#contact">Learn more <span>↗</span></a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-icon pink-icon">◈</div>
+                    <span class="project-label">03 / DOCKER</span>
+                    <h3>Docker Projects</h3>
+                    <p>Running applications in containers with Docker and Nginx.</p>
+                    <a href="#contact">Learn more <span>↗</span></a>
+                </article>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="about-content">
+                <span class="tag">A LITTLE ABOUT ME</span>
+                <h2>Always learning.<br><span>Always building.</span></h2>
+                <p>
+                    I'm exploring the world of web development and server
+                    administration. This website is one of my first projects,
+                    hosted on my own Ubuntu server using Docker and Nginx.
+                </p>
+            </div>
+            <div class="about-badge">
+                <span class="badge-symbol">✳</span>
+                <h3>Curiosity<br>drives everything.</h3>
+                <p>One project at a time.</p>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <span class="tag">LET'S CONNECT</span>
+            <h2>Have an idea?</h2>
+            <p>I'm always looking for something new to learn or build.</p>
+            <a class="button primary" href="mailto:hello@example.com">
+                Get in touch ↗
+            </a>
+            <p class="small-note">
+                Replace hello@example.com with your own email address.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#home" class="logo"><span>◆</span> MyPortfolio</a>
+        <p>Built with HTML, CSS, Docker & Nginx.</p>
+        <p>© 2026 MyPortfolio</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — get back to the trail with TRAILBOUND.">
+  <title>Trail Lost? | TRAILBOUND</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="error-page">
+  <header class="error-header">
+    <a class="error-brand" href="/" aria-label="TRAILBOUND home">
+      <span class="error-brand-icon">▲</span>
+      TRAILBOUND
+    </a>
+    <a class="error-home-link" href="/">Back to shop ↗</a>
+  </header>
+
+  <main class="error-main">
+    <div class="error-art" aria-hidden="true">
+      <span class="error-sun"></span>
+      <span class="error-mountain error-mountain-back"></span>
+      <span class="error-mountain error-mountain-front"></span>
+      <span class="error-tree">♠</span>
+      <span class="error-tree error-tree-two">♠</span>
+      <span class="error-number">404</span>
+    </div>
+
+    <p class="error-eyebrow">OFF THE BEATEN PATH</p>
+    <h1>Looks like you've<br>lost the trail.</h1>
+    <p class="error-description">
+      The page you're looking for isn't here. No worries —
+      every good adventure starts with finding your way back.
+    </p>
+
+    <a class="error-button" href="/">← Back to the homepage</a>
+    <p class="error-footnote">TAKE A BREATH. FIND YOUR NEXT ADVENTURE.</p>
+  </main>
+
+  <footer class="error-footer">
+    <span>© <span id="error-year"></span> TRAILBOUND</span>
+    <span>FIND YOUR NEXT WILD.</span>
+  </footer>
+
+  <script>
+    document.getElementById("error-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
