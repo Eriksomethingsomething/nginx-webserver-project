@@ -2,69 +2,185 @@
 
 ## Overview
 
-This project demonstrates two ways to host a website using Nginx:
+This project demonstrates two ways to host websites using Nginx:
 
-1. Normal Nginx installed directly on Ubuntu Linux.
-2. Nginx running inside a Docker container.
+1. **Normal Nginx** — installed directly on Ubuntu Linux.
+2. **Docker Nginx** — running inside a Docker container managed by Docker Compose.
 
-Both servers serve a website, but they use different deployment methods.
+The purpose of this project is to understand how web servers work, how websites are deployed, and the differences between traditional installation and containerization.
 
-## 1. Normal Nginx on Ubuntu
+## Technologies Used
 
-- Platform: Ubuntu Linux in VMware
-- Web server: Nginx installed directly on Linux
-- URL: http://192.168.136.130/
-- Nginx configuration: /etc/nginx/sites-available/myserver
-- Website directory on Ubuntu: /var/www/myserver/html/
+- Ubuntu Linux
+- Nginx
+- Docker
+- Docker Compose
+- HTML, CSS and JavaScript
+- Git and GitHub
+- VMware
 
-The `normal-nginx` folder in this project contains copies of the website files used for development and presentation.
+## Project Structure
 
-Useful commands on Ubuntu:
+```text
+nginx-webserver-project/
+├── README.md
+├── normal-nginx/
+│   ├── index.html
+│   └── style.css
+└── docker-nginx/
+    ├── Dockerfile
+    ├── compose.yaml
+    └── ...
+```
+
+The `normal-nginx/` directory contains the website files for the normal Nginx project. The `docker-nginx/` directory contains the Docker deployment files, where present in this repository.
+
+## 1. Normal Nginx
+
+Normal Nginx is installed directly on Ubuntu and runs as a Linux service.
+
+**Configuration details**
+
+- Web server: Nginx
+- Host port: `80`
+- Website: My Portfolio
+- Service management: `systemctl`
+
+### Useful commands
+
+Check whether Nginx is running:
 
 ```bash
 sudo systemctl status nginx
+```
+
+Test the Nginx configuration:
+
+```bash
 sudo nginx -t
+```
+
+Reload Nginx after configuration changes:
+
+```bash
 sudo systemctl reload nginx
 ```
 
-## 2. Nginx with Docker
+Check the local website from the Ubuntu machine:
 
-- Platform: Docker
-- Configuration files: `docker-nginx/Dockerfile` and `docker-nginx/compose.yaml`
-- Website URL on the Ubuntu VM: http://192.168.136.130:8082/
-- Container port: 80
-- Published host port: 8082
+```bash
+curl -I http://localhost/
+```
 
-To start the Docker project, open a terminal in the `docker-nginx` directory and run:
+## 2. Docker Nginx
+
+The Docker version runs Nginx inside a container. Docker Compose manages the container and its configuration.
+
+**Configuration details**
+
+- Web server: Nginx
+- Host port: `8082`
+- Container port: `80`
+- Website: TRAILBOUND | Outdoor & Adventure
+- Management: Docker Compose
+
+Port mapping `8082:80` means that requests to port `8082` on the host are forwarded to port `80` inside the container.
+
+### Start the Docker website
+
+Open a terminal in the Docker project directory and run:
 
 ```bash
 docker compose up -d --build
+```
+
+Check the running containers:
+
+```bash
 docker compose ps
 ```
 
-To stop it:
+View recent logs:
+
+```bash
+docker compose logs --tail=30
+```
+
+Check the website locally:
+
+```bash
+curl -I http://localhost:8082/
+```
+
+Stop the Docker project:
 
 ```bash
 docker compose down
 ```
 
-These commands affect the Docker project only, not the normal Nginx service.
+These Docker Compose commands manage the relevant Compose project. They do not stop the separate normal Nginx service.
 
-## Main Differences
+For the Docker implementation and its configuration, see the [my-webserver-image repository](https://github.com/Eriksomethingsomething/my-webserver-image).
+
+## 3. Accessing the Websites
+
+The websites have been tested in two Ubuntu environments.
+
+| Environment | Normal Nginx — My Portfolio | Docker Nginx — TRAILBOUND |
+|---|---|---|
+| Ubuntu VM on MacBook | `http://192.168.116.128/` | `http://192.168.116.128:8082/` |
+| Desktop Ubuntu | `http://192.168.136.130/` | `http://192.168.136.130:8082/` |
+
+These are the IP addresses recorded during testing. They may change if the network configuration changes.
+
+**Important:** `localhost` always refers to the machine on which the request is made. For example, `http://localhost/` in the MacBook's browser refers to macOS itself, not the Ubuntu virtual machine.
+
+To access a website from another device, the host must be reachable over the network and the relevant port must be allowed through the firewall.
+
+## 4. Main Differences
 
 | Feature | Normal Nginx | Docker Nginx |
-| --- | --- | --- |
-| Installation | Directly on Ubuntu | Inside a container |
-| Management | systemctl | Docker Compose |
-| Website port | 80 | 8082 on the host |
-| Isolation | Runs on the Linux system | Runs in a container |
+|---|---|---|
+| Installation | Installed directly on Ubuntu | Runs inside a container |
+| Management | `systemctl` | Docker Compose |
+| Host port | `80` | `8082` |
+| Containerization | Not containerized | Runs in an isolated container |
+| Configuration | Linux Nginx configuration | Dockerfile, Compose file and Nginx configuration |
+| Main benefit | Simple system-level service | Portable and reproducible deployment |
 
-## Presentation Checklist
+## 5. Testing Checklist
 
-- Start the Ubuntu VMware machine.
-- Check that the Ubuntu IP address is correct.
-- Open the normal website at http://192.168.136.130/.
-- Open the Docker website at http://192.168.136.130:8082/.
-- Explain the difference between direct installation and containerization.
+- [ ] Confirm that the Ubuntu machine is running.
+- [ ] Check the current IP address.
+- [ ] Confirm that normal Nginx is running.
+- [ ] Test the normal Nginx configuration with `sudo nginx -t`.
+- [ ] Open the Portfolio website on port `80`.
+- [ ] Confirm that the Docker container is running.
+- [ ] Open the TRAILBOUND website on port `8082`.
+- [ ] Check the Docker logs if something fails.
+- [ ] Capture screenshots for the project presentation.
 
-Note: The IP address may change if the Ubuntu VM's network configuration changes.
+## 6. Learning Objectives
+
+Through this project, I have gained practical experience with:
+
+- Hosting websites using Nginx.
+- Managing Linux services.
+- Configuring and testing a web server.
+- Building and running Docker containers.
+- Using Docker Compose to manage applications.
+- Understanding host ports and container ports.
+- Troubleshooting local and network access.
+- Maintaining project files with Git and GitHub.
+
+## Conclusion
+
+This project demonstrates two approaches to deploying a web server. Normal Nginx runs directly on Ubuntu as a system service, while Docker Nginx runs inside a container managed by Docker Compose.
+
+Both approaches can serve websites, but they differ in deployment, isolation, configuration and management. Comparing them provides a practical introduction to Linux administration and containerization.
+
+## Author
+
+Erik Andersen
+
+*Hands-on project exploring Nginx, Docker, Linux and web-server deployment.*
