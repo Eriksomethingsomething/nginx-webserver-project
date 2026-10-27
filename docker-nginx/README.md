@@ -17,7 +17,7 @@ This project demonstrates how to build, configure, and run a containerized web s
 ## Project Structure
 
 ```text
-my-webserver-image/
+docker-nginx/
 ├── html/
 │   ├── index.html
 │   ├── style.css
@@ -32,26 +32,26 @@ my-webserver-image/
 └── README.md
 ```
 
-| File or folder | Purpose |
-|---|---|
-| `html/` | Website files |
-| `html/index.html` | Main webpage |
-| `html/style.css` | Website styling |
-| `html/script.js` | Adds website interactivity, including product filters, mobile navigation, and a demo cart counter |
-| `html/404.html` | Custom missing-page content |
-| `nginx/default.conf` | Nginx server configuration |
-| `Dockerfile` | Defines how the image is built |
-| `compose.yaml` | Configures ports, volumes, health checks, and restart policy |
-| `.dockerignore` | Excludes selected files from the build context |
-| `.gitignore` | Specifies files Git should ignore |
+| File or folder       | Purpose                                                      |
+| -------------------- | ------------------------------------------------------------ |
+| `html/`              | Website files                                                |
+| `html/index.html`    | Main webpage                                                 |
+| `html/style.css`     | Website styling                                              |
+| `html/script.js`     | Adds website interactivity                                   |
+| `html/404.html`      | Custom missing-page content                                  |
+| `nginx/default.conf` | Nginx server configuration                                   |
+| `Dockerfile`         | Defines how the Docker image is built                        |
+| `compose.yaml`       | Configures ports, volumes, health checks, and restart policy |
+| `.dockerignore`      | Excludes selected files from the build context               |
+| `.gitignore`         | Specifies files Git should ignore                            |
 
 ## How It Works
 
-1. Docker builds an image using `nginx:1.31.7-alpine` as its base image.
+1. Docker builds an image using the Nginx base image specified in the Dockerfile.
 2. The Dockerfile copies the website files and custom Nginx configuration into the image.
 3. Docker Compose configures the service, including port mapping, read-only volume mounts, and a health check.
 4. Port `8082` on the host maps to port `80` inside the container.
-5. Read-only mounts make local HTML, CSS, JavaScript, and Nginx configuration files available to the running container during development.
+5. Read-only mounts make local website and Nginx configuration files available to the running container during development.
 6. Nginx serves a custom 404 page for missing URLs.
 7. Docker periodically checks whether Nginx responds to a local HTTP request.
 8. The `unless-stopped` restart policy allows Docker to restart the service after unexpected stops.
@@ -60,15 +60,19 @@ my-webserver-image/
 
 ### Prerequisites
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- Docker Desktop or a system with Docker Engine and the Docker Compose plugin
 - Git
 
 ### 1. Clone the repository
 
+If you have not cloned the project yet, run:
+
 ```bash
-git clone https://github.com/Eriksomethingsomething/my-webserver-image.git
-cd my-webserver-image
+git clone https://github.com/Eriksomethingsomething/nginx-webserver-project.git
+cd nginx-webserver-project/docker-nginx
 ```
+
+If you already have the repository on your computer, open a terminal in the existing `docker-nginx` directory instead.
 
 ### 2. Build and start the website
 
@@ -92,7 +96,7 @@ The request should return an HTTP `404 Not Found` status and display the custom 
 docker compose ps
 ```
 
-The service should eventually report `healthy` if the health check succeeds.
+The service should report `healthy` after the health check succeeds.
 
 ### 6. View logs
 
@@ -120,14 +124,15 @@ This checks the Nginx configuration using a temporary container with the Compose
 docker compose down
 ```
 
+This stops and removes the Docker Compose service. It does not stop a separate Nginx server running directly on your computer.
+
 ## Features
 
 - Static website served by Nginx
-- Version-tagged Alpine-based Nginx image
+- Alpine-based Nginx image
 - Custom Nginx configuration
 - Custom 404 page
 - JavaScript-powered frontend interactions
-- Demo cart counter (no real checkout or payment processing)
 - Docker Compose service management
 - Port mapping (`8082:80`)
 - Read-only volume mounts
@@ -151,4 +156,6 @@ This project provides hands-on experience with:
 
 **Erik Andersen**
 
-*Built as a hands-on project to learn Docker, web servers, and version control.*
+Built as a hands-on project to learn Docker, web servers, and version control.
+
+For an overview of the complete repository, see the [main README](../README.md).

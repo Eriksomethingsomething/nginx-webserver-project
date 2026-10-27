@@ -26,14 +26,28 @@ nginx-webserver-project/
 ├── README.md
 ├── normal-nginx/
 │   ├── index.html
-│   └── style.css
-└── docker-nginx/
-    ├── Dockerfile
-    ├── compose.yaml
-    └── ...
+│   ├── style.css
+│   └── nginx-site.conf
+├── docker-nginx/
+│   ├── Dockerfile
+│   ├── compose.yaml
+│   ├── README.md
+│   ├── html/
+│   │   ├── index.html
+│   │   ├── 404.html
+│   │   ├── style.css
+│   │   └── script.js
+│   └── nginx/
+│       └── default.conf
+└── git-practice/
+    └── README.md
 ```
 
-The `normal-nginx/` directory contains the website files for the normal Nginx project. The `docker-nginx/` directory contains the Docker deployment files, where present in this repository.
+The `normal-nginx/` directory contains the website files for the Nginx service installed directly on Ubuntu.
+
+The `docker-nginx/` directory contains the Dockerfile, Docker Compose configuration, website files, and Nginx configuration for the containerized website.
+
+The `git-practice/` directory contains notes and exercises for learning Git and GitHub.
 
 ## 1. Normal Nginx
 
@@ -46,7 +60,7 @@ Normal Nginx is installed directly on Ubuntu and runs as a Linux service.
 - Website: My Portfolio
 - Service management: `systemctl`
 
-### Useful commands
+### Useful Commands
 
 Check whether Nginx is running:
 
@@ -86,9 +100,9 @@ The Docker version runs Nginx inside a container. Docker Compose manages the con
 
 Port mapping `8082:80` means that requests to port `8082` on the host are forwarded to port `80` inside the container.
 
-### Start the Docker website
+### Start the Docker Website
 
-Open a terminal in the Docker project directory and run:
+Open a terminal in the `docker-nginx/` directory and run:
 
 ```bash
 docker compose up -d --build
@@ -118,9 +132,9 @@ Stop the Docker project:
 docker compose down
 ```
 
-These Docker Compose commands manage the relevant Compose project. They do not stop the separate normal Nginx service.
+These Docker Compose commands manage the Docker project. They do not stop the separate normal Nginx service.
 
-For the Docker implementation and its configuration, see the [my-webserver-image repository](https://github.com/Eriksomethingsomething/my-webserver-image).
+See [`docker-nginx/README.md`](docker-nginx/README.md) for more details about the Docker implementation.
 
 ## 3. Accessing the Websites
 
@@ -144,7 +158,7 @@ To access a website from another device, the host must be reachable over the net
 | Installation | Installed directly on Ubuntu | Runs inside a container |
 | Management | `systemctl` | Docker Compose |
 | Host port | `80` | `8082` |
-| Containerization | Not containerized | Runs in an isolated container |
+| Containerization | Not containerized | Runs in a container |
 | Configuration | Linux Nginx configuration | Dockerfile, Compose file and Nginx configuration |
 | Main benefit | Simple system-level service | Portable and reproducible deployment |
 
