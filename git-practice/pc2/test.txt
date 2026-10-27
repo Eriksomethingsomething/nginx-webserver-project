@@ -1,0 +1,2 @@
+dette er min første versjon
+Jeg øver på Git push og pull
