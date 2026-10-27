@@ -4,3 +4,4 @@ hallo skriver noe nytt
 er det noe gale med dette
 test fra pc1
 det var noe gale med git
+tester om det faktisk funker
