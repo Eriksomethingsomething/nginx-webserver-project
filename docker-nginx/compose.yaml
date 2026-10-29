@@ -1,50 +1,18 @@
-
-
-# compose.yaml er en tekstbasert fil som beskriver hvordan Docker
-# skal konfigurere og kjøre containeren min.
-
 services:
   website:
-    # Navnet på tjenesten min.
-
     build: .
-    # Bygger Docker-imaget fra Dockerfile i prosjektmappen.
 
     ports:
       - "8082:80"
-    # Kobler port 8082 på datamaskinen min til port 80 i containeren.
-    # Jeg åpner nettsiden på http://localhost:8082.
 
     volumes:
       - ./html:/usr/share/nginx/html:ro
-      # Kobler nettsidefilene mine til containeren.
-      # Endringer i filene vises uten at jeg bygger imaget på nytt.
-      # :ro betyr at containeren bare kan lese filene.
-
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      # Kobler Nginx-konfigurasjonen min til containeren.
-      # :ro betyr at containeren ikke kan endre filen.
 
     restart: unless-stopped
-    # Starter containeren på nytt hvis den stopper,
-    # med mindre jeg har stoppet den manuelt.
 
     healthcheck:
-      # Kontrollerer om nettsiden svarer.
-
       test: ["CMD", "wget", "-q", "--spider", "127.0.0.1/"]
-      # Tester nettsiden fra innsiden av containeren.
-
       interval: 30s
-      # Kjører helsesjekken hvert 30. sekund.
-
       timeout: 5s
-      # Venter maksimalt 5 sekunder på svar.
-
       retries: 3
-      # Etter 3 mislykkede forsøk blir statusen unhealthy.
-
-# Hva hjelper Docker Compose med?
-# Docker Compose gjør det enklere å konfigurere og starte
-# containeren med én kommando.
-# Det håndterer blant annet porter, volumer og helsesjekker.
